@@ -6,16 +6,21 @@
         'src/Callbacks.cc',
         'src/Context.cc'
       ],
-      'include_dirs': [
-        '/usr/include/ni'
-      ],
+      
       'conditions': [
         ['OS=="mac"', {
+            'include_dirs': [
+              '/usr/local/include/ni'
+            ],
             'link_settings': {
                 'libraries': [
-                    'libOpenNI.dylib'
+                    '/usr/local/lib/libOpenNI.dylib'
                 ],
             }
+          }, {
+            'include_dirs': [
+              '/usr/include/ni'
+            ],
           }
         ],
         ['OS=="linux"', {
